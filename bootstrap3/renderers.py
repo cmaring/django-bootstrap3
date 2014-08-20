@@ -382,7 +382,7 @@ class FieldRenderer(BaseRenderer):
             form_group_class = add_css_class(form_group_class, self.required_css_class)
         if self.field_errors:
             form_group_class = add_css_class(form_group_class, 'has-error')
-        elif self.field.form.is_bound:
+        elif self.field.form.is_bound and not self.field.form.errors:
             form_group_class = add_css_class(form_group_class, self.success_css_class)
         if self.layout == 'horizontal':
             form_group_class = add_css_class(form_group_class, self.get_size_class(prefix='form-group'))
